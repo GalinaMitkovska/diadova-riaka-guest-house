@@ -1,18 +1,13 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import ServiceForm
 from .models import Service
 
 
-# READ
 def service_list(request):
   services = Service.objects.all()
   return render(request, 'services/service_list.html', {'services': services})
 
 
-# CREATE
 def service_create(request):
   if request.method == 'POST':
     form = ServiceForm(request.POST)
@@ -28,7 +23,6 @@ def service_create(request):
   )
 
 
-# UPDATE
 def service_edit(request, pk):
   service = get_object_or_404(Service, pk=pk)
   if request.method == 'POST':
@@ -45,7 +39,6 @@ def service_edit(request, pk):
   )
 
 
-# DELETE
 def service_delete(request, pk):
   service = get_object_or_404(Service, pk=pk)
   if request.method == 'POST':

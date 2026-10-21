@@ -7,7 +7,7 @@
 
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px; align-items: start; flex-wrap: wrap;">
 
-        <!-- Форма за добавяне на отзив (лява колона) -->
+
         <div style="background: rgba(30, 41, 59, 0.7); padding: 25px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15);">
             <h4 style="color: #f59e0b; margin-bottom: 20px; font-size: 1.3rem;">Оставете отзив</h4>
             <form method="post">
@@ -17,7 +17,7 @@
             </form>
         </div>
 
-        <!-- Списък с отзиви (дясна колона) -->
+
         <div>
             {% if reviews %}
                 {% for review in reviews %}
@@ -29,7 +29,7 @@
                         <small style="color: #94a3b8; display: block; margin-bottom: 12px;">Публикувано на: {{ review.created_at|date:"d.m.Y H:i" }}</small>
                         <p style="color: #e2e8f0; margin-bottom: 15px;">{{ review.comment }}</p>
 
-                        <!-- Бутон за изтриване (ако имате review:review_delete, добавете префикса) -->
+
                         <a href="{% url 'review_delete' review.pk %}" style="background-color: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 5px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: all 0.3s ease;">Изтрий отзив</a>
                     </div>
                 {% endfor %}

@@ -7,19 +7,19 @@ from .forms import BookingEditForm, BookingForm
 from .models import Booking
 
 
-# READ ALL
+
 def booking_list(request):
   bookings = Booking.objects.all()
   return render(request, 'bookings/booking_list.html', {'bookings': bookings})
 
 
-# READ DETAILS
+
 def booking_detail(request, pk):
   booking = get_object_or_404(Booking, pk=pk)
   return render(request, 'bookings/booking_detail.html', {'booking': booking})
 
 
-# CREATE
+
 def booking_create(request):
   if request.method == 'POST':
     form = BookingForm(request.POST)
@@ -31,7 +31,7 @@ def booking_create(request):
   return render(request, 'bookings/booking_form.html', {'form': form})
 
 
-# UPDATE (с disabled поле във формата)
+
 def booking_edit(request, pk):
   booking = get_object_or_404(Booking, pk=pk)
   if request.method == 'POST':
@@ -48,7 +48,7 @@ def booking_edit(request, pk):
   )
 
 
-# DELETE
+
 def booking_delete(request, pk):
   booking = get_object_or_404(Booking, pk=pk)
   if request.method == 'POST':

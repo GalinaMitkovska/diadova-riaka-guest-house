@@ -20,5 +20,4 @@ class Room(models.Model):
     )
 
     def __str__(self):
-        # get_room_type_display() връща 'Стая' или 'Апартамент', а не 'room'
         return f'{self.get_room_type_display()} ({self.capacity} места)'

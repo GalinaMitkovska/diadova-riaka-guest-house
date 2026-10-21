@@ -10,7 +10,7 @@ def room_list(request):
   return render(request, 'rooms/room_list.html', {'rooms': rooms})
 
 
-# CREATE: Добавяне на нова стая
+
 def room_create(request):
   if request.method == 'POST':
     form = RoomForm(request.POST)
@@ -24,7 +24,7 @@ def room_create(request):
   )
 
 
-# UPDATE: Редактиране на стая
+
 def room_edit(request, pk):
   room = get_object_or_404(Room, pk=pk)
   if request.method == 'POST':
@@ -41,7 +41,7 @@ def room_edit(request, pk):
   )
 
 
-# DELETE: Изтриване на стая
+
 def room_delete(request, pk):
   room = get_object_or_404(Room, pk=pk)
   if request.method == 'POST':

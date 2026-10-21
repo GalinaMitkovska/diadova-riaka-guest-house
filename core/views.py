@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 
 
-# Create your views here.
+
 from django.shortcuts import render
 
 def home_view(request:HttpRequest) -> HttpResponse:

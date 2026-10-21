@@ -25,5 +25,4 @@ class Service(models.Model):
     )
 
     def __str__(self):
-        # Използваме get_service_type_display(), за да се извежда "Разходка с коне", а не "horses"
         return f"{self.get_service_type_display()}: {self.name}"
