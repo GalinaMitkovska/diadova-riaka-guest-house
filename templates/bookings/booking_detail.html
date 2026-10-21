@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 700px; margin: 40px auto; background: rgba(30, 41, 59, 0.85); padding: 30px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); color: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);">
+    <h2 style="color: #f59e0b; margin-bottom: 25px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); padding-bottom: 8px;">Детайли за резервация</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 12px; font-size: 1.05rem;">
+        <p style="margin: 0;"><strong>Име на гост:</strong> {{ booking.guest_name }}</p>
+        <p style="margin: 0;"><strong>Имейл:</strong> {{ booking.email }}</p>
+        <p style="margin: 0;"><strong>Телефон:</strong> {{ booking.phone }}</p>
+        <p style="margin: 0;"><strong>Брой гости:</strong> {{ booking.number_of_guests }}</p>
+        <p style="margin: 0;"><strong>Дата на настаняване:</strong> {{ booking.check_in }}</p>
+        <p style="margin: 0;"><strong>Дата на напускане:</strong> {{ booking.check_out }}</p>
+        <p style="margin: 0;"><strong>Помещение (Стая):</strong> {{ booking.room }}</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <p style="margin-bottom: 8px;"><strong>Избрани услуги:</strong></p>
+        <ul style="background: rgba(15, 23, 42, 0.6); padding: 15px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); list-style-type: disc; margin-left: 0;">
+            {% for service in booking.services.all %}
+                <li style="color: #e2e8f0; margin-bottom: 5px;">{{ service.name }}</li>
+            {% empty %}
+                <li style="color: #94a3b8;">Няма избрани допълнителни услуги.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <hr style="border-color: rgba(255, 255, 255, 0.15); margin: 25px 0;">
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="{% url 'booking_edit' booking.pk %}" style="background-color: #f59e0b; color: #0f172a; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">Редактирай</a>
+        <a href="{% url 'booking_list' %}" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.2); display: inline-block;">Назад към списъка</a>
+    </div>
+</div>
+{% endblock %}

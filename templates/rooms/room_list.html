@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="section-block">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+        <h2 style="margin: 0; border: none; padding: 0;">Списък с помещения</h2>
+        <a href="{% url 'room_create' %}" class="btn-submit" style="text-decoration: none;">+ Добави стая/апартамент</a>
+    </div>
+
+    {% if rooms %}
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Тип</th>
+                        <th>Капацитет</th>
+                        <th>Описание</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                    <tr>
+                        <td>{{ room.get_room_type_display }}</td>
+                        <td>{{ room.capacity }} души</td>
+                        <td>{{ room.description|default:"—" }}</td>
+                        <td>
+                            <a href="{% url 'room_edit' room.pk %}" style="background-color: #f59e0b; color: #0f172a; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; margin-right: 5px; display: inline-block;">Редакция</a>
+                            <a href="{% url 'room_delete' room.pk %}" style="background-color: #ef4444; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; display: inline-block;">Изтриване</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div style="background: rgba(30, 41, 59, 0.8); padding: 25px; border-radius: 12px; text-align: center; color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1);">
+            Все още няма въведени помещения. Използвайте бутона горе, за да добавите първото!
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

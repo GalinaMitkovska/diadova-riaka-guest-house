@@ -1,0 +1,20 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="mb-4">{{ title }}</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success w-100 mt-3">Запази услугата</button>
+                </form>
+                <a href="{% url 'service_list' %}" class="btn btn-secondary w-100 mt-2">Назад към списъка</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

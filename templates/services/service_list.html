@@ -1,0 +1,44 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="section-block">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+        <h2 style="margin: 0; border: none; padding: 0;">Списък с услуги</h2>
+        <!-- Забележка: Ако използвате app_name = 'services', променете на 'services:service_create', ако не - оставете 'service_create' -->
+        <a href="{% url 'service_create' %}" class="btn-submit" style="text-decoration: none;">+ Добави услуга</a>
+    </div>
+
+    {% if services %}
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Тип</th>
+                        <th>Име</th>
+                        <th>Описание</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for service in services %}
+                    <tr>
+                        <td>{{ service.get_service_type_display }}</td>
+                        <td>{{ service.name }}</td>
+                        <td>{{ service.description|default:"—"|truncatechars:50 }}</td>
+                        <td>
+                            <a href="{% url 'service_edit' service.pk %}" style="background-color: #f59e0b; color: #0f172a; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; margin-right: 5px; display: inline-block;">Редакция</a>
+                            <a href="{% url 'service_delete' service.pk %}" style="background-color: #ef4444; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; display: inline-block;">Изтриване</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div style="background: rgba(30, 41, 59, 0.8); padding: 25px; border-radius: 12px; text-align: center; color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1);">
+            Все още няма въведени услуги. Използвайте бутона горе, за да добавите първата!
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

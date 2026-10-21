@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="section-block">
+    <h2 style="margin-bottom: 30px;">Отзиви от нашите гости</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px; align-items: start; flex-wrap: wrap;">
+
+        <!-- Форма за добавяне на отзив (лява колона) -->
+        <div style="background: rgba(30, 41, 59, 0.7); padding: 25px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15);">
+            <h4 style="color: #f59e0b; margin-bottom: 20px; font-size: 1.3rem;">Оставете отзив</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn-submit" style="width: 100%; margin-top: 10px; text-align: center;">Публикувай отзив</button>
+            </form>
+        </div>
+
+        <!-- Списък с отзиви (дясна колона) -->
+        <div>
+            {% if reviews %}
+                {% for review in reviews %}
+                    <div style="background: rgba(30, 41, 59, 0.7); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15); margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                            <h5 style="color: #ffffff; margin: 0; font-size: 1.1rem;">{{ review.name }}</h5>
+                            <span style="background-color: #f59e0b; color: #0f172a; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Оценка: {{ review.rating }} / 5</span>
+                        </div>
+                        <small style="color: #94a3b8; display: block; margin-bottom: 12px;">Публикувано на: {{ review.created_at|date:"d.m.Y H:i" }}</small>
+                        <p style="color: #e2e8f0; margin-bottom: 15px;">{{ review.comment }}</p>
+
+                        <!-- Бутон за изтриване (ако имате review:review_delete, добавете префикса) -->
+                        <a href="{% url 'review_delete' review.pk %}" style="background-color: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 5px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: all 0.3s ease;">Изтрий отзив</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div style="background: rgba(30, 41, 59, 0.8); padding: 25px; border-radius: 12px; text-align: center; color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1);">
+                    Все още няма отзиви. Бъдете първият, който ще сподели мнение!
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

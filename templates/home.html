@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Начало - Къща за гости „Дядова ряка“</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Външен CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Навигационна лента -->
+    <header class="font">
+        <div class="logo-container">
+        <a href="{% url 'core:home' %}" class="brand-title">
+            <!-- Тук зареждаме светлия вариант на логото -->
+            <img src="{% static 'images/loggo-new.jpg' %}" alt="Дядова ряка Лого" class="site-logo-img">
+            <span class="logo-text">
+                Дядова ряка
+                <small>Еко Къща за гости • с. Горна Арда</small>
+            </span>
+        </a>
+    </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'core:home' %}" class="active">Начало</a></li>
+                <li><a href="{% url 'room_list' %}">Стаи</a></li>
+                <li><a href="{% url 'service_list' %}">Услуги</a></li>
+                <li><a href="{% url 'core:gallery' %}">Галерия</a></li>
+                <li><a href="{% url 'core:attractions' %}">Забележителности наблизо</a></li>
+                <li><a href="{% url 'booking_list' %}">Резервации</a></li>
+                <li><a href="{% url 'review_list' %}">Отзиви</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="home-main">
+        <div class="hero-spacer"></div>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Дядова ряка. Всички права запазени.</p>
+    </footer>
+
+</body>
+</html>

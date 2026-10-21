@@ -1,0 +1,151 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="section-block" style="max-width: 1200px; margin: 40px auto; padding: 40px;">
+    <h2 style="color: #f59e0b; margin-bottom: 15px; text-align: center; font-size: 2.2rem; border-bottom: 2px solid rgba(245, 158, 11, 0.3); padding-bottom: 15px;">Забележителности наблизо</h2>
+
+    <p class="places-intro" style="text-align: center; color: #cbd5e1; margin-bottom: 30px; font-size: 1.1rem;">
+        Открийте красотата на Родопите и посетете някои от най-интересните места в района на село Арда.
+    </p>
+
+    <style>
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .place-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            border-color: #f59e0b;
+        }
+        .place-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .place-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .place-content h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+        .place-content p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .place-content span {
+            color: #f59e0b;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    </style>
+
+    <div class="places-grid">
+
+        <div class="place-card">
+            <img src="{% static 'images/arda.jpg' %}" alt="Село Арда">
+            <div class="place-content">
+                <h3>Село Арда</h3>
+                <p>Живописно родопско село, разположено сред красивата природа на Горна Арда.</p>
+                <span>📍 Село Арда</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/izvor-arda.jpg' %}" alt="Изворът на река Арда">
+            <div class="place-content">
+                <h3>Изворът на река Арда</h3>
+                <p>Красиво и спокойно място сред природата, където започва пътят на река Арда.</p>
+                <span>📍 В района на Горна Арда</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/agoushevi.jpg' %}" alt="Агушеви конаци">
+            <div class="place-content">
+                <h3>Агушеви конаци</h3>
+                <p>Уникален архитектурен комплекс в село Могилица, съхранил историята и духа на Родопите.</p>
+                <span>📍 Могилица</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/uhlovitsa.jpg' %}" alt="Пещера Ухловица">
+            <div class="place-content">
+                <h3>Пещера Ухловица</h3>
+                <p>Една от най-впечатляващите пещери в Родопите, известна със своите красиви скални образувания.</p>
+                <span>📍 Край село Ухловица</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/kaleto.jpg' %}" alt="Крепост Калето">
+            <div class="place-content">
+                <h3>Крепост „Калето“</h3>
+                <p>Средновековна крепост, разположена високо над живописното село Кошница.</p>
+                <span>📍 Кошница</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/vodopad.jpg' %}" alt="Водопад в Родопите">
+            <div class="place-content">
+                <h3>Киселчовски водопад</h3>
+                <p>Прекрасно място за разходка и почивка сред прохладата и спокойствието на Родопите.</p>
+                <span>📍 Родопите</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/varhat.jpg' %}" alt="Панорамна площадка Върхът">
+            <div class="place-content">
+                <h3>Панорамна площадка „Върхът“</h3>
+                <p>Намира се над село Могилица и предлага невероятна панорама. До площадката със стъклен под се стига по атрактивен маршрут.</p>
+                <span>📍 с. Могилица</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/nadarska.jpg' %}" alt="Пещера Надарска">
+            <div class="place-content">
+                <h3>Пещера „Надарска“</h3>
+                <p>Красива и дива пещера в близост до с. Могилица, богата на образувания, сталактити и сталагмити.</p>
+                <span>📍 с. Могилица</span>
+            </div>
+        </div>
+
+        <div class="place-card">
+            <img src="{% static 'images/golobovica.jpg' %}" alt="Водна пещера Голубовица">
+            <div class="place-content">
+                <h3>Водна пещера „Голубовица“</h3>
+                <p>Истинско подземно приключение с водач, специална екипировка и лодки по подземна река!</p>
+                <span>📍 край с. Кошница / Смилян</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

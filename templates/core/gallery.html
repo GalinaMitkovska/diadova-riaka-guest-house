@@ -1,0 +1,68 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="section-block" style="max-width: 1200px; margin: 40px auto; padding: 40px;">
+    <h2 style="color: #f59e0b; margin-bottom: 30px; text-align: center; font-size: 2.2rem; border-bottom: 2px solid rgba(245, 158, 11, 0.3); padding-bottom: 15px;">Галерия от къща за гости „Дядова ряка“</h2>
+
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gall {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 200px;
+        }
+        .gall:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border-color: #f59e0b;
+        }
+        .gall img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .gall:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <div class="gallery-grid">
+        <div class="gall"><img src="{% static 'images/gledka5.jpeg' %}" alt="Гледката"></div>
+        <div class="gall"><img src="{% static 'images/gledka.jpg' %}" alt="Природа"></div>
+        <div class="gall"><img src="{% static 'images/terasa1.jpg' %}" alt="Тераса"></div>
+        <div class="gall"><img src="{% static 'images/terasa.jpg' %}" alt="Изглед от терасата"></div>
+        <div class="gall"><img src="{% static 'images/kashta.jpg' %}" alt="Къщата"></div>
+        <div class="gall"><img src="{% static 'images/kyshta0.jpg' %}" alt="Къщата отвън"></div>
+        <div class="gall"><img src="{% static 'images/mehana.jpg' %}" alt="Механа"></div>
+        <div class="gall"><img src="{% static 'images/mehana1.jpg' %}" alt="Механата отвътре"></div>
+        <div class="gall"><img src="{% static 'images/mehana5.jpg' %}" alt="Кът в механата"></div>
+        <div class="gall"><img src="{% static 'images/koridor.jpg' %}" alt="Коридор"></div>
+        <div class="gall"><img src="{% static 'images/koridor1.jpg' %}" alt="Интериор"></div>
+        <div class="gall"><img src="{% static 'images/staq.jpg' %}" alt="Стая"></div>
+        <div class="gall"><img src="{% static 'images/staq1.jpg' %}" alt="Спалня"></div>
+        <div class="gall"><img src="{% static 'images/staq2.jpg' %}" alt="Апартамент"></div>
+        <div class="gall"><img src="{% static 'images/staq5.jpg' %}" alt="Стая за гости"></div>
+        <div class="gall"><img src="{% static 'images/hrana.jpg' %}" alt="Традиционна храна"></div>
+        <div class="gall"><img src="{% static 'images/hrana1.jpg' %}" alt="Доматена манджа"></div>
+        <div class="gall"><img src="{% static 'images/hrana2.jpg' %}" alt="Родопски ястия"></div>
+        <div class="gall"><img src="{% static 'images/hrana3.jpg' %}" alt="Вкусна гозба"></div>
+        <div class="gall"><img src="{% static 'images/hrana4.jpg' %}" alt="Трапеза"></div>
+        <div class="gall"><img src="{% static 'images/hrana5.jpg' %}" alt="Домашно приготвена храна"></div>
+        <div class="gall"><img src="{% static 'images/hrana6.jpg' %}" alt="Специалитет"></div>
+        <div class="gall"><img src="{% static 'images/hrana7.jpeg' %}" alt="Родопски клин"></div>
+        <div class="gall"><img src="{% static 'images/hrana8.jpeg' %}" alt="Пикантно ястие"></div>
+        <div class="gall"><img src="{% static 'images/hrana9.jpeg' %}" alt="Вкусни предложения"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+from django.http import HttpRequest, HttpResponse
+
+
+# Create your views here.
+from django.shortcuts import render
+
+def home_view(request:HttpRequest) -> HttpResponse:
+    return render(request, 'home.html')
+
+
+def gallery_view(request):
+    return render(request, 'core/gallery.html')
+
+def attractions_view(request):
+    return render(request, 'core/attractions.html')
